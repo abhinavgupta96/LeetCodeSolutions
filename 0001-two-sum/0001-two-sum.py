@@ -10,6 +10,3 @@ class Solution:
             if tmp in hash_target and hash_target[tmp]!=i:
                 return [i, hash_target[tmp]]
         return output
-            
-                
-        
