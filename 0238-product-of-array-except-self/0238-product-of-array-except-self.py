@@ -13,6 +13,8 @@ class Solution:
             output[i]*=postfix ##update output values by multiplying with postfix values
             postfix*=nums[i]
         return output
+    
+    
     ##my approach, takes more memory
     # prev = [1]*len(nums)
     # post = [1]*len(nums)
