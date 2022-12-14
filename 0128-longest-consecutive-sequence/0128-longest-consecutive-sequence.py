@@ -12,4 +12,5 @@ class Solution:
                 cur_longest, j = cur_longest + 1, j + 1
             longest = max(longest, cur_longest)
         return longest
+        
                 
