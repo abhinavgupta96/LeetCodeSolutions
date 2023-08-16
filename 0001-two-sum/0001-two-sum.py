@@ -1,5 +1,6 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # in this approach instead of storing the indexes of the occurence of a number, we just store the latest occurence which could be max of 2 only ans the problem is "two sum".
         hash_target = {}
         output = []
         for i in range(len(nums)):
