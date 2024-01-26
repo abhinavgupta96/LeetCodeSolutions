@@ -11,11 +11,16 @@ class Solution:
         #     if j>1:
         #         output = True
         #         return output
-            hashset = set() ##this approach is where we create a set, set cannot contain duplicate values in python
-            for n in nums:
-                if n in hashset:
-                    output = True
-                    return output
-                else:
-                    hashset.add(n)
-            return output
+            # hashset = set() ##this approach is where we create a set, set cannot contain duplicate values in python
+            # for n in nums:
+            #     if n in hashset:
+            #         output = True
+            #         return output
+            #     else:
+            #         hashset.add(n)
+            # return output
+            n = len(nums)
+            new_len = len(set(nums))
+            if n == new_len:
+                return False
+            return True
