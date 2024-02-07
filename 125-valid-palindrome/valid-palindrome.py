@@ -1,5 +1,10 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        '''
+        The first approach directly uses an inbuilt python function to check if character is alphanumeric and add it to a string.
+        The second approach uses a 2 pointer approach where we pick a character from left pointer and right pointer, 
+        see if they are alphanumeric, if so we continue, if not we break out of the loop while also making sure index positions are maintained.
+        '''
         # newStr = ""
         # for i in s : 
         #     if i.isalnum():
