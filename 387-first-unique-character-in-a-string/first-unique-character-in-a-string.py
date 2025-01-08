@@ -1,10 +1,8 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        hashDict = defaultdict(int)
-        for c in s:
-            hashDict[c]+=1
-        for i,c in enumerate(s):
-            if hashDict[c]==1:
+        freq_count = Counter(s)
+
+        for i in range(len(s)):
+            if freq_count[s[i]]==1:
                 return i
         return -1
-        
