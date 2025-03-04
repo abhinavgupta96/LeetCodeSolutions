@@ -1,21 +1,19 @@
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
-        flips_to_zero = 0
-        flips_to_one = 0
+        onesToLeft = [0]*(len(s)+1)
+        zeroesToRight = [0]*(len(s)+1)
 
-        # Iterate through each character in the string.
-        for char in s:
-            if char == '0':
-                # If the current character is '0':
-                # - flips_to_zero remains the same because '0' can stay '0'.
-                # - flips_to_one needs to be incremented because '1' needs to be flipped to '0'.
-                flips_to_one = min(flips_to_zero, flips_to_one) + 1
-            else:
-                # If the current character is '1':
-                # - flips_to_zero needs to be incremented because '0' needs to be flipped to '1'.
-                # - flips_to_one remains the same because '1' can stay '1'.
-                flips_to_one = min(flips_to_zero, flips_to_one)
-                flips_to_zero += 1
+        minimumFlips = float('inf')
 
-        # The result is the minimum number of flips needed to make the entire string monotone increasing.
-        return min(flips_to_zero, flips_to_one)
+        # Populate the ones_to_left array by counting the number of 1s to the left of each position
+        for i in range(1, len(s)+1):
+            onesToLeft[i] = onesToLeft[i-1] + (1 if s[i-1]=='1' else 0)
+
+        # Populate the zeros_to_right array by counting the number of 0s to the right of each position
+        for i in reversed(range(len(s))):
+            zeroesToRight[i] = zeroesToRight[i+1] + (1 if s[i]=='0' else 0)
+
+        for i in range(len(s)+1):
+            minimumFlips = min(minimumFlips, zeroesToRight[i]+onesToLeft[i])
+        
+        return minimumFlips 
