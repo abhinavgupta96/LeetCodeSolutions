@@ -10,7 +10,7 @@ class Solution:
             onesToLeft[i] = onesToLeft[i-1] + (1 if s[i-1]=='1' else 0)
 
         # Populate the zeros_to_right array by counting the number of 0s to the right of each position
-        for i in reversed(range(len(s))):
+        for i in range(len(s)-1, -1, -1):
             zeroesToRight[i] = zeroesToRight[i+1] + (1 if s[i]=='0' else 0)
 
         for i in range(len(s)+1):
