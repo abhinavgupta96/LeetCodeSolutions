@@ -1,17 +1,19 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        wordSet = set(wordDict)
         q = deque([0])
-        visit = set()
+        seen = set()
+        wordDict = set(wordDict)
 
-        while q : 
+        while q:
             start = q.popleft()
-            if start in visit:
+            if start in seen:
                 continue
-            visit.add(start)
+            seen.add(start)
             for end in range(start+1, len(s)+1):
-                if s[start:end] in wordSet : 
-                    if end==len(s):
+                if s[start:end] in wordDict:
+                    if end == len(s):
                         return True
                     q.append(end)
         return False
+
+                    
