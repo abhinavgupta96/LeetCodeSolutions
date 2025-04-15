@@ -1,8 +1,9 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        closing = [")", "]", "}"]
-
         stack = []
+        closing = [")","]","}"]
+        closing = set(closing)
+
         for i in s:
             if i not in closing:
                 stack.append(i)
@@ -10,10 +11,10 @@ class Solution:
                 if not stack:
                     return False
                 char = stack.pop()
-                if char =="{" and i!="}":
+                if i == "]" and char !="[":
                     return False
-                if char =="(" and i!=")":
+                if i == ")" and char !="(":
                     return False
-                if char =="[" and i!="]":
+                if i == "}" and char !="{":
                     return False
         return not stack
